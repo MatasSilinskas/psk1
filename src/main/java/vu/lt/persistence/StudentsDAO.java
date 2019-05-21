@@ -31,4 +31,8 @@ public class StudentsDAO {
     public void addCourse(Student student, Course course) {
         student.addCourse(course);
     }
+
+    public Student update(Student student) {
+        return this.em.merge(student);
+    }
 }

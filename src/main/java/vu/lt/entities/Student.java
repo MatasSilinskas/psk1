@@ -27,9 +27,21 @@ public class Student implements Serializable {
     @Column(name = "STUDENT_NUMBER")
     private String studentNumber;
 
+    @Size(max = 20)
+    @Column(name = "FIRST_NAME")
+    private String firstName;
+
+    @Size(max = 40)
+    @Column(name = "LAST_NAME")
+    private String lastName;
+
     @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 
     @JoinTable(name = "STUDENT_COURSE", joinColumns = {
             @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
